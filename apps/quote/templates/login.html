@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Welcome to the Wall</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet" media="screen">
+
+<style>
+body{
+    padding:10px;
+    margin:5px;
+}
+#registration, #login{
+    display: inline-block;
+    vertical-align: top;
+    margin:60px;
+}
+h3{
+    text-align: center;
+}
+form input, select {
+    display: block;
+}
+</style>
+</head>
+<body>
+    <h1>Welcome to the Wall. Please Register or Login.</h1>
+    <h2>You never know who will be inspired by your inspiring quote.</h2>
+    <div id="registration">
+        <h3>Register</h3>
+        <form action='/regval/' method='post'>
+            {% csrf_token %}
+            {{first_name}}
+            <p>First Name: <input type='text' name="first_name"></p>
+            {{last_name}}
+            <p>Last Name: <input type='text' name="last_name"></p>
+            {{email}}    
+            <p>Email: <input type='text' name="email"> </p>
+            {{password}}
+            <p>Password: <input type='password' name="password"></p>
+            {{confirmpw}}
+            <p>Confirm PW: <input type='password' name="confirmpw"></p>
+            <p><input type="submit" name="Register"></p>
+        </form>
+    </div>
+    <div id="login">
+        <h3>Login</h3>
+        <form action='/loginval/' method='post'>
+            {% csrf_token %}
+        {{loginusername}}
+            <p>Email: <input type='text' name="email"></p>
+        {{loginpassword}}
+        <p>Password: <input type='password' name="password"></p>
+        <input type="submit" name="Login">
+        </form>
+    </div>
+</body>
+</html>
